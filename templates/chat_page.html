@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KGPMingles Chat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        .otp-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            outline: none;
+            margin-top: 15px;
+        }
+
+        body {
+            background: #fefaf5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .chat-container {
+            width: 900px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-header {
+            background: #ff9800;
+            padding: 15px;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .chat-box {
+            height: 400px;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .message {
+            max-width: 70%;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 14px;
+            position: relative;
+        }
+
+        .message .time {
+            font-size: 10px;
+            color: #888;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .user1 {
+            align-self: flex-start;
+            background: #fde5ba;
+            color: #333;
+        }
+
+        .user2 {
+            align-self: flex-end;
+            background: #ff9800;
+            color: white;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+            background: white;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .chat-input button {
+            padding: 10px 15px;
+            background: #ff9800;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+
+        .chat-input button:hover {
+            background: #e68900;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .chat-container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="chat-container">
+        <!-- Chat Header -->
+        <div class="chat-header">KGPMingles Chat</div>
+
+        <!-- Chat Messages -->
+        <div class="chat-box" id="chat-box">
+            <div class="message user1">
+                <strong>Alice:</strong> Hey! How's it going?
+                <span class="time">10:02 AM</span>
+            </div>
+            <div class="message user2">
+                <strong>Bob:</strong> Hey Alice! I'm doing great. How about you?
+                <span class="time">10:03 AM</span>
+            </div>
+            <div class="message user1">
+                <strong>Alice:</strong> Just working on some projects. What about you?
+                <span class="time">10:05 AM</span>
+            </div>
+        </div>
+
+        <!-- Chat Input -->
+        <div class="chat-input">
+            <input type="text" id="message-input" placeholder="Type a message..." />
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            let input = document.getElementById('message-input')
+            let message = input.value.trim()
+            if (message === '') return
+
+            let chatBox = document.getElementById('chat-box')
+
+            // Simulate alternating users (Alice & Bob)
+            let user = chatBox.children.length % 2 === 0 ? 'Alice' : 'Bob'
+            let userClass = user === 'Alice' ? 'user1' : 'user2'
+
+            let time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+
+            // Create message div
+            let messageDiv = document.createElement('div')
+            messageDiv.classList.add('message', userClass)
+            messageDiv.innerHTML = `<strong>${user}:</strong> ${message} <span class="time">${time}</span>`
+
+            // Append message to chat
+            chatBox.appendChild(messageDiv)
+
+            // Scroll to latest message
+            chatBox.scrollTop = chatBox.scrollHeight
+
+            // Clear input field
+            input.value = ''
+        }
+    </script>
+
+</body>
+</html>

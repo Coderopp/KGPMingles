@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KGPMingles Sign Up</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #fefaf5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            width: 900px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .left-section {
+            background: #fde5ba;
+            width: 40%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .left-section h2 {
+            color: #333;
+            font-weight: 600;
+        }
+
+        .left-section p {
+            color: #666;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .dog-image {
+            width: 90%;
+            position: relative;
+            bottom: 10px;
+        }
+
+        .right-section {
+            width: 60%;
+            padding: 40px;
+            background: white;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #ff9800;
+            text-transform: lowercase;
+        }
+
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .signup-box {
+            margin-top: 40px;
+        }
+
+        .signup-box h2 {
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .input-group {
+            margin: 15px 0;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background: #ff9800;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #e68900;
+        }
+
+        .social-login {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .facebook-btn {
+            background: #3b5998;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .already {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .already a {
+            color: #ff9800;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                width: 90%;
+            }
+            .left-section {
+                width: 100%;
+                padding: 20px;
+            }
+            .right-section {
+                width: 100%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Left Section -->
+        <div class="left-section">
+            <h2>Welcome to KGPMingles</h2>
+            <p>Explore people!</p>
+            <img src="" alt="Heart" class="heart-image">
+        </div>
+
+        <!-- Right Section -->
+        <div class="right-section">
+            <div class="top-nav">
+                <div class="logo">KGPMingles</div>
+                <div>
+                    <span>🔍 Connect</span>
+                    <span> | </span>
+                    <span>🔓 Sign In</span>
+                    <span> | </span>
+                    <span>🌍 En ▾</span>
+                </div>
+            </div>
+
+            <div class="signup-box">
+                <h2>Sign Up</h2>
+
+                <div class="input-group">
+                    <input type="text" placeholder="Email Id (Ending with iitkgp.ac.in)">
+                </div>
+
+                <div class="input-group">
+                    <input type="text" placeholder="Username">
+                </div>
+
+                <div class="input-group">
+                    <input type="password" placeholder="Password">
+                </div>
+
+                <button class="btn">Let's Get Started</button>
+
+                <p class="already">Already a member? <a href="#">Sign In</a></p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
